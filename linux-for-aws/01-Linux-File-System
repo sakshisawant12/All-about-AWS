@@ -1,1 +1,294 @@
+# 📂 Linux File System
 
+> Learn how Linux organizes files and directories. Understanding the Linux file system is essential for managing servers, troubleshooting issues, and working with AWS EC2 instances.
+
+---
+
+# 📚 Table of Contents
+
+- Linux File System
+- Linux Directory Structure
+- Important Linux Directories
+- Mounting
+- File Types
+- AWS Connection
+- Key Takeaways
+- Interview Questions
+
+---
+
+# 📖 What is a Linux File System?
+
+A **File System** is the method Linux uses to organize, store, and manage files and directories on a storage device.
+
+Unlike Windows, Linux follows a **single hierarchical directory structure** that starts from the **Root Directory (`/`)**.
+
+---
+
+# 🌳 Linux Directory Structure
+
+```text
+/
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+```
+
+Everything in Linux begins from the **Root Directory (`/`)**.
+
+---
+
+# 📁 Important Linux Directories
+
+| Directory | Purpose |
+|------------|---------|
+| `/` | Root directory of the entire file system |
+| `/home` | Home directory of normal users |
+| `/root` | Home directory of the root user |
+| `/etc` | System configuration files |
+| `/var` | Variable data such as logs |
+| `/usr` | Installed applications and libraries |
+| `/tmp` | Temporary files |
+| `/boot` | Boot loader and kernel files |
+| `/dev` | Device files |
+| `/proc` | Process and system information |
+| `/media` | Automatically mounted removable devices |
+| `/mnt` | Temporary mount point for storage devices |
+| `/opt` | Optional third-party software |
+
+---
+
+# 📌 Important Directories Explained
+
+## `/`
+
+The **Root Directory** is the top-most directory in Linux.
+
+Everything begins from here.
+
+Example:
+
+```text
+/
+├── home
+├── etc
+├── var
+```
+
+---
+
+## `/home`
+
+Stores files of normal users.
+
+Example:
+
+```text
+/home/janvi
+```
+
+---
+
+## `/root`
+
+Home directory of the **root (administrator)** user.
+
+> **Note:** `/` and `/root` are different.
+
+---
+
+## `/etc`
+
+Contains configuration files for the operating system and installed applications.
+
+Examples:
+
+```text
+/etc/passwd
+/etc/hostname
+/etc/hosts
+```
+
+---
+
+## `/var`
+
+Stores files that change frequently.
+
+Examples:
+
+- Log files
+- Cache
+- Mail
+- Print queues
+
+Most important location:
+
+```text
+/var/log
+```
+
+---
+
+## `/usr`
+
+Contains installed software, libraries, and documentation.
+
+---
+
+## `/tmp`
+
+Stores temporary files created by applications.
+
+Files in this directory may be removed after a system reboot.
+
+---
+
+# 💾 Mounting
+
+## What is Mounting?
+
+Mounting is the process of attaching a storage device to a directory so Linux can access it.
+
+### Example
+
+```bash
+sudo mkdir /mnt/data
+
+sudo mount /dev/sdb1 /mnt/data
+```
+
+After mounting, the contents of the disk become available inside:
+
+```text
+/mnt/data
+```
+
+---
+
+# 📄 Linux File Types
+
+The **first character** in the output of `ls -l` indicates the file type.
+
+Example:
+
+```text
+-rwxr-xr-x
+```
+
+| Symbol | Meaning |
+|---------|---------|
+| `-` | Regular File |
+| `d` | Directory |
+| `l` | Symbolic Link |
+| `c` | Character Device |
+| `b` | Block Device |
+
+### Examples
+
+Regular File
+
+```text
+-rw-r--r--
+```
+
+Directory
+
+```text
+drwxr-xr-x
+```
+
+Symbolic Link
+
+```text
+lrwxrwxrwx
+```
+
+---
+
+# ☁️ AWS Connection
+
+When working with AWS EC2, you'll frequently interact with these directories:
+
+| Directory | AWS Usage |
+|------------|-----------|
+| `/etc` | Configure services like Nginx and SSH |
+| `/var/log` | Troubleshoot application and system logs |
+| `/home` | Store user files |
+| `/mnt` | Mount Amazon EBS volumes |
+| `/tmp` | Temporary application files |
+| `/boot` | System boot files |
+
+Understanding the Linux file system makes it easier to manage cloud servers efficiently.
+
+---
+
+# 📝 Key Takeaways
+
+- Linux uses a single directory hierarchy starting from `/`.
+- Every file and directory is organized under the Root Directory.
+- `/etc` stores configuration files.
+- `/var/log` stores system logs.
+- `/home` contains user files.
+- `/mnt` is commonly used for mounting storage devices.
+- The first character in `ls -l` indicates the file type.
+
+---
+
+# 🎯 Interview Questions
+
+### 1. What is the Linux File System?
+
+The Linux File System is the structure Linux uses to organize and manage files and directories.
+
+---
+
+### 2. What is the difference between `/` and `/root`?
+
+- `/` is the Root Directory.
+- `/root` is the home directory of the root user.
+
+---
+
+### 3. Which directory stores Linux configuration files?
+
+```
+/etc
+```
+
+---
+
+### 4. Where are log files stored?
+
+```
+/var/log
+```
+
+---
+
+### 5. What is mounting?
+
+Mounting is the process of attaching a storage device to a directory so it can be accessed by Linux.
+
+---
+
+### 6. What does the first character in `ls -l` represent?
+
+It indicates the file type, such as a regular file (`-`), directory (`d`), or symbolic link (`l`).
+
+---
