@@ -527,10 +527,3 @@ Presigned URLs
 
 ---
 
-## Next File
-
-```text
-Notes/S3-Storage-Classes.md
-```
-
-This will cover **S3 Standard, Intelligent-Tiering, IA, Glacier classes, use cases, differences, and when to choose each one.**
